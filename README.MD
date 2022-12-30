@@ -169,16 +169,16 @@ location /PATH {
 
 ```nginx
 server {
-	root /var/www/html;
 	server_name irserver.site.com;
 
+	root /var/www/html;
+	index index.html;
+
 	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 	}
-	
-	location /myuserurl {
+
+	location /myrurl {
 	  proxy_set_header X-Real-IP $remote_addr;
 	  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 	  proxy_set_header Host $http_host;
@@ -192,6 +192,7 @@ server {
 	  proxy_set_header Connection "upgrade";
 	}
 	
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/irserver.site.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/irserver.site.com/privkey.pem; # managed by Certbot
@@ -200,17 +201,13 @@ server {
 }
 
 server {
-	listen 80;
-	listen [::]:80;
-	server_name irserver.site.com;
-}
-
-server {
     if ($host = irserver.site.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
+
+	listen 80;
+	listen [::]:80;
 	server_name irserver.site.com;
-    listen 80;
     return 404; # managed by Certbot
 }
 ```
