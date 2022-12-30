@@ -213,7 +213,6 @@ server {
 ```
 
 - حتما چک کنید پوشه `/var/www/html` موجود باشد و فایل `/etc/letsencrypt/live/DOMAIN/privkey.pem` و `/etc/letsencrypt/live/DOMAIN/fullchain.pem` نیز موجود باشد.
-
 - حالا nginx را ریستارت کنید `service nginx restart`
 - حالا کافیست در v2ray هر QRCodeی که از XUI میگیرید را وارد کنید و قسمت پورت 443 و قسمت Address آدرس سرور ایران خودتان را بدهید مانند: irserver.site.com
 - در صورت نیاز میتوانید مقدار `Camouflage domain(host)` را هم به irserver.site.com تغییر دهید.
