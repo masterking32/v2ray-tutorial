@@ -178,7 +178,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location /myrurl {
+	location /myuserurl {
 	  proxy_set_header X-Real-IP $remote_addr;
 	  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 	  proxy_set_header Host $http_host;
@@ -211,6 +211,8 @@ server {
     return 404; # managed by Certbot
 }
 ```
+
+- حتما چک کنید پوشه `/var/www/html` موجود باشد و فایل `/etc/letsencrypt/live/DOMAIN/privkey.pem` و `/etc/letsencrypt/live/DOMAIN/fullchain.pem` نیز موجود باشد.
 
 - حالا nginx را ریستارت کنید `service nginx restart`
 - حالا کافیست در v2ray هر QRCodeی که از XUI میگیرید را وارد کنید و قسمت پورت 443 و قسمت Address آدرس سرور ایران خودتان را بدهید مانند: irserver.site.com
