@@ -349,7 +349,6 @@ server {
         try_files $uri $uri/ =404;
     }
     
-    listen [::]:443 ssl;
     listen 443 ssl;
     ssl_certificate /root/cert.crt;
     ssl_certificate_key /root/private.key;
@@ -359,7 +358,6 @@ server {
         return 301 https://$host$request_uri;
     }
     listen 80;
-    listen [::]:80;
     server_name DOMAIN;
     return 404;
 }
@@ -394,7 +392,7 @@ location /PATH {
 ```
 
 بجای PATH مقداری pathی که در هنگام ساخت vmess دادید وارد کنید و بجای PORT مقدار پورتی که هنگام ساخت وارد شده را وارد کنید.
-- سپس مقدار مربوطه را بالای `listen [::]:443 ssl ipv6only=on;` در فایل کانفیگ nginx قرار دهید.
+- سپس مقدار مربوطه را بالای `listen 443 ssl;` در فایل کانفیگ nginx قرار دهید.
 
 نمونه کامل فایل Nginx ما مطابق با مقادیر آموزشی:
 ```nginx
@@ -420,7 +418,6 @@ server {
 	  proxy_set_header Connection "upgrade";
 	}
 
-    listen [::]:443 ssl ipv6only=on;
     listen 443 ssl;
     ssl_certificate /root/cert.crt;
     ssl_certificate_key /root/private.key;
@@ -430,7 +427,6 @@ server {
         return 301 https://$host$request_uri;
     }
     listen 80;
-    listen [::]:80;
     server_name mytest.site.com;
     return 404;
 }
