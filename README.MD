@@ -192,7 +192,7 @@ server {
 	  proxy_set_header Connection "upgrade";
 	}
 	
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen [::]:443 ssl; # managed by Certbot
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/irserver.site.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/irserver.site.com/privkey.pem; # managed by Certbot
@@ -349,7 +349,7 @@ server {
         try_files $uri $uri/ =404;
     }
     
-    listen [::]:443 ssl ipv6only=on;
+    listen [::]:443 ssl;
     listen 443 ssl;
     ssl_certificate /root/cert.crt;
     ssl_certificate_key /root/private.key;
