@@ -242,7 +242,7 @@ apt install curl sudo wget socat nano -y
 - نسخه انگلیسی شده - پیشنهادی
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/hossinasaadi/x-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/HexaSoftwareTech/x-ui/master/install.sh)
 ```
 
 - نسخه اصلی با زبان چینی
