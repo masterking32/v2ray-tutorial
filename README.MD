@@ -120,7 +120,6 @@ nano /etc/nginx/sites-available/DOMAIN
 ```nginx
 server {
        listen 80;
-       listen [::]:80;
        server_name DOMAIN;
        root /var/www/html;
        index index.html;
@@ -192,7 +191,6 @@ server {
 	  proxy_set_header Connection "upgrade";
 	}
 	
-    listen [::]:443 ssl; # managed by Certbot
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/irserver.site.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/irserver.site.com/privkey.pem; # managed by Certbot
@@ -206,7 +204,6 @@ server {
     } # managed by Certbot
 
 	listen 80;
-	listen [::]:80;
 	server_name irserver.site.com;
     return 404; # managed by Certbot
 }
