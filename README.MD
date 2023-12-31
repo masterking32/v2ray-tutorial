@@ -236,16 +236,9 @@ apt install curl sudo wget socat nano -y
 
 
 - حالا به مراحل نصب x-ui میرویم، یکی از موارد زیر را نصب کنید.
-- نسخه انگلیسی شده - پیشنهادی
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/HexaSoftwareTech/x-ui/master/install.sh)
-```
-
-- نسخه اصلی با زبان چینی
-
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 
 - سوال اول را y زده
